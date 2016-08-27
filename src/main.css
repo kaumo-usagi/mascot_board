@@ -223,7 +223,6 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
-
 #whiteBoard{
   width: calc((100% - 240px) - 40px);
   height: 1000px;
