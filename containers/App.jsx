@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux';
 import reducer from "../reducers/index";
 import createLogger from "redux-logger";
@@ -11,6 +11,8 @@ import Video from "../components/Video"
 import WhiteBoard from "../components/WhiteBoard"
 import React, { Component } from "react";
 
+import connectWebSocketAction from "../actions/connect_websocket_action";
+
 //Store/Reducer----------------------------------
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, logger));
@@ -20,10 +22,16 @@ const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 //Component---------------------------------------
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(connectWebSocketAction());
+  }
+
   render() {
 	  return (
       <div>
-        <WhiteBoard />
+        <Provider store={store}>
+          <WhiteBoard />
+        </Provider>
         <SideBar />
         <Video />
 		  </div>
