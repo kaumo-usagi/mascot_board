@@ -279,3 +279,12 @@ nav{
   bottom: 40px;
   right:40px;
 }
+
+.stamps{
+  height: 60px;
+  line-height: 60px;
+}
+.stamp{
+  height: 50px;
+  font-size: 23px;
+}
