@@ -18,10 +18,14 @@ const stl = {
 }
 
 const textStl = {
-  color: "#444"
+  color: "#444",
+  fontSize: 25,
+  fontWeight: 200
+}
 const stampStl = {
   paddingTop: 10,
-  paddingBottom: 4
+  paddingBottom: 6,
+  fontSize: 20
   // height: 64,
 }
 
@@ -40,11 +44,13 @@ class SideBar extends Component {
             className="stamp"
           />
           <ListItem
+            style={textStl}
             primaryText="Image"
             inset={true}
             className="stamp"
           />
           <ListItem
+            style={textStl}
             primaryText="honya"
             inset={true}
             className="stamp"
