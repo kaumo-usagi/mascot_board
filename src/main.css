@@ -222,3 +222,8 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+.action-but{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

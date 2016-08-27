@@ -1,0 +1,14 @@
+html,
+body{
+  .white_board{
+    height: 1000px;
+  }
+
+  .action-but{
+    position: fixed;
+    bottom: 30px;
+    left: 270px;
+    background-color: #eee;
+    z-index: 100;
+  }
+}
