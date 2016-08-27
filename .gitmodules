@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = https://github.com/kaumo-usagi/mascot_board_server.git
