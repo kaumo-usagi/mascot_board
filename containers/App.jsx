@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from 'redux';
 import reducer from "../reducers/index";
 import createLogger from "redux-logger";
+import thunk from 'redux-thunk';
 
 // import your original components from components directory
 // ex) import WhiteBoard from "../components/WhiteBoard";
