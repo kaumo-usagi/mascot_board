@@ -5,14 +5,14 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const style = {
-  height: 100,
-  width: 100,
+  height: 1000,
+  width: "calc(100% - 40px)",
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
 };
 
-class SideBar extends Component {
+class WhiteBoard extends Component {
   getChildContext() {
     return {muiTheme: getMuiTheme(baseTheme)};
   }
@@ -24,8 +24,8 @@ class SideBar extends Component {
     )
   }
 }
-SideBar.childContextTypes = {
+WhiteBoard.childContextTypes = {
   muiTheme: PropTypes.object.isRequired
 }
 
-export default SideBar;
+export default WhiteBoard;
