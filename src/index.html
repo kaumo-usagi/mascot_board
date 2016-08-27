@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="style/css/main.css">
+    <script type="text/jsx"src="scripts/jsx/index.jsx"></script>
+    <script src="https://code.getmdl.io/1.2.0/material.min.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -44,16 +46,26 @@
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>Add components</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Chat</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">video_call</i>Video chat</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Add friends</a>
-          <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+          <h1>Cara Board</h1>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>
+            Add components
+          </a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">video_call</i>
+            Video chat
+          </a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>
+            Add friends
+          </a>
+          <a class="mdl-navigation__link nav_end" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>
+            Settings
+          </a>
         </nav>
       </div>
-      <main class="mdl-layout__content mdl-color--grey-100">
+      <main class="mdl-layout__content mdl-color--grey-100" id="scroll">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <div class="white_board"></div>
@@ -108,11 +120,5 @@
           </g>
         </defs>
       </svg>
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored action-but">
-        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>
-      </button>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
-      <script type="text/jsx"src="scripts/index.jsx"></script>
-    <script src="https://code.getmdl.io/1.2.0/material.min.js"></script>
   </body>
 </html>

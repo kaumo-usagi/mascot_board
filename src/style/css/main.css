@@ -8,5 +8,10 @@ body .action-but {
   left: 270px;
   background-color: #eee;
   z-index: 100; }
+html nav h1,
+body nav h1 {
+  margin-left: 50px;
+  font-size: 26px;
+  color: #eee; }
 
 /*# sourceMappingURL=main.css.map */
