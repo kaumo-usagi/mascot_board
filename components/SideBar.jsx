@@ -3,10 +3,6 @@ import {List, ListItem} from 'material-ui/List';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
-import FileFolder from 'material-ui/svg-icons/file/folder';
-import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import {blue500, yellow600} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme' ;
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
@@ -23,6 +19,10 @@ const stl = {
 
 const textStl = {
   color: "#444"
+const stampStl = {
+  paddingTop: 10,
+  paddingBottom: 4
+  // height: 64,
 }
 
 class SideBar extends Component {
@@ -32,19 +32,22 @@ class SideBar extends Component {
   render() {
     return (
         <List style={stl} id="sideBar">
-          <Subheader inset={true}>Stamps</Subheader>
+          <Subheader id="stamps" inset={true} style={stampStl}>Stamps</Subheader>
           <ListItem
             style={textStl}
             primaryText="Text"
             inset={true}
+            className="stamp"
           />
           <ListItem
             primaryText="Image"
             inset={true}
+            className="stamp"
           />
           <ListItem
             primaryText="honya"
             inset={true}
+            className="stamp"
           />
         </List>
     )

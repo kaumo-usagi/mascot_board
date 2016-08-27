@@ -232,3 +232,12 @@ _:-ms-input-placeholder, :root .demo-graph {
 nav{
   margin-top: 64px;
 }
+
+.stamps{
+  height: 60px;
+  line-height: 60px;
+}
+.stamp{
+  height: 50px;
+  font-size: 23px;
+}
