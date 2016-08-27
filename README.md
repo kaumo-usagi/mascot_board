@@ -1,4 +1,9 @@
 # MascotBoard
+## Requirements
+- Node.js
+- Ruby 2.3.0
+- Redis
+
 
 ## Installation
 Install dependencies:
@@ -12,19 +17,35 @@ $ cd server && bundle install -j4
 
 
 ## Usage
-### w/o server
+### Develop w/o server
 
 ```
 $ npm start
 ```
 
-### w/ server
+### Develop w/ server
 
 ```
 # build frontend code
 $ npm run build
 
 # run webserver
-# open localhost:9292 w/ web browser
+# open localhost:9292
 $ cd server && bundle exec rackup -p 9292
+
+# run redis-server
+$ redis-server
 ```
+
+
+### Update server module
+
+```
+$ git submodule foreach "git pull origin master"
+$ git commit -m "Update server module"
+```
+
+
+### License
+???
+
