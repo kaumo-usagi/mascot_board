@@ -38,6 +38,7 @@ class WhiteBoard extends Component {
     return {muiTheme: getMuiTheme(baseTheme)};
   }
 
+<<<<<<< HEAD
   textStyle() {
     return {
       top:  100,
@@ -59,6 +60,8 @@ class WhiteBoard extends Component {
     }
   }
 
+=======
+>>>>>>> Establish websocket-connection with redux
   render() {
     const circles = [];
     Object.keys(this.props.users).forEach(i => {
