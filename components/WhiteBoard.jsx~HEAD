@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-const style = {
+const WBstyle = {
   height: 1000,
   width: "calc(100% - 40px)",
   margin: 20,
@@ -11,14 +11,20 @@ const style = {
   display: 'inline-block',
 };
 
+const PaperStyle = {
+  height: 1000,
+  width: "100%",
+  margin: 0
+}
+
 class WhiteBoard extends Component {
   getChildContext() {
     return {muiTheme: getMuiTheme(baseTheme)};
   }
   render() {
     return (
-      <div id="whiteBoard">
-        <Paper style={style} zDepth={1} />
+      <div style={WBstyle} id="whiteBoard">
+        <Paper style={PaperStyle} zDepth={1} />
       </div>
     )
   }
