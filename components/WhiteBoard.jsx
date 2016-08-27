@@ -1,6 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { PropTypes, Component } from "react";
 import Paper from 'material-ui/Paper';
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const style = {
   height: 1000,
@@ -10,22 +11,20 @@ const style = {
   display: 'inline-block',
 };
 
-const WhiteBoard = () => (
+class WhiteBoard extends Component {
+  getChildContext() {
+    return {muiTheme: getMuiTheme(baseTheme)};
+  }
+  render() {
+    return (
       <div id="whiteBoard">
         <Paper style={style} zDepth={1} />
       </div>
-);
+    )
+  }
+}
+WhiteBoard.childContextTypes = {
+  muiTheme: PropTypes.object.isRequired
+}
 
-const mapStateToProps = state => ({
-  users: state.users
-});
-
-const mapDispatchToProps = dispatch => ({
-});
-
-const WhiteBoardContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WhiteBoard);
-
-export default WhiteBoardContainer;
+export default WhiteBoard;
