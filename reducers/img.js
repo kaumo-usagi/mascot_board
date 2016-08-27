@@ -8,6 +8,8 @@ export default function img(state=[], action) {
       return state.filter( (e)=>{ return (e.id != action.id) } );
     case UPDATE_IMG :
       return state.map( (e)=>{ if(e.id === action.id){ return { url: action.url, position: action.position } } else{ return e }} )
+    default :
+      return state;
 
   }
 }
