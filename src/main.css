@@ -234,13 +234,32 @@ nav{
   margin-top: 64px;
 }
 
-.stamps{
-  height: 60px;
-  line-height: 60px;
+#stamps{
+  height: 64px !important;
+  line-height: 64px !important;
+  background-color: #b0bec5;
 }
+
+
 .stamp{
   height: 50px;
   font-size: 23px;
+  width: 100%;
+  padding-left:0px !important;
+  /*float: right;*/
+  display: block;
+  line-height: 30px;
+  text-indent: 2.6em;
+}
+
+.stamp .icon{
+  height: 14px;
+  width: auto;
+  float: left;
+  line-height: 14px;
+  position: absolute;
+  top:11px;
+  left: -80px;
 }
 
 .mdl-layout__header{

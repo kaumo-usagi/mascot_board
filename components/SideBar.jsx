@@ -19,13 +19,15 @@ const stl = {
 
 const textStl = {
   color: "#444",
-  fontSize: 25,
-  fontWeight: 200
+  fontSize: 22,
+  fontWeight: 200,
+  paddingLeft:50
 }
 const stampStl = {
-  paddingTop: 10,
-  paddingBottom: 6,
-  fontSize: 20
+  paddingTop: 2,
+  paddingBottom: 2,
+  fontSize: 20,
+  height:44
   // height: 64,
 }
 
@@ -42,19 +44,31 @@ class SideBar extends Component {
             primaryText="Text"
             inset={true}
             className="stamp"
-          />
+          >
+          <a className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">text_format</i>
+          </a>
+          </ListItem>
           <ListItem
             style={textStl}
             primaryText="Image"
             inset={true}
             className="stamp"
-          />
+          >
+          <a className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">insert_photo</i>
+          </a>
+          </ListItem>
           <ListItem
             style={textStl}
             primaryText="honya"
             inset={true}
             className="stamp"
-          />
+          >
+          <a className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i>
+          </a>
+          </ListItem>
         </List>
     )
   }
