@@ -1,4 +1,3 @@
-// use this directory as a components folder
 import React, { PropTypes, Component } from "react";
 import Paper from 'material-ui/Paper';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -18,7 +17,7 @@ class WhiteBoard extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="whiteBoard">
         <Paper style={style} zDepth={1} />
       </div>
     )
