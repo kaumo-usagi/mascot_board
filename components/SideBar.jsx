@@ -22,7 +22,15 @@ const stl = {
 }
 
 const textStl = {
-  color: "#444"
+  color: "#444",
+  fontSize: 25,
+  fontWeight: 200
+}
+const stampStl = {
+  paddingTop: 10,
+  paddingBottom: 6,
+  fontSize: 20
+  // height: 64,
 }
 
 class SideBar extends Component {
@@ -32,19 +40,24 @@ class SideBar extends Component {
   render() {
     return (
         <List style={stl} id="sideBar">
-          <Subheader inset={true}>Stamps</Subheader>
+          <Subheader id="stamps" inset={true} style={stampStl}>Stamps</Subheader>
           <ListItem
             style={textStl}
             primaryText="Text"
             inset={true}
+            className="stamp"
           />
           <ListItem
+            style={textStl}
             primaryText="Image"
             inset={true}
+            className="stamp"
           />
           <ListItem
+            style={textStl}
             primaryText="honya"
             inset={true}
+            className="stamp"
           />
         </List>
     )

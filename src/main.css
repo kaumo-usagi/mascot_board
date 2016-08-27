@@ -101,7 +101,8 @@ html, body {
   font-weight: 500;
 }
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
+
+  background-color:#263238 !important;
   color: #37474F;
 }
 .demo-navigation .mdl-navigation__link .material-icons {
@@ -222,7 +223,6 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
-
 #whiteBoard{
   width: calc((100% - 240px) - 40px);
   height: 1000px;
@@ -231,4 +231,32 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 nav{
   margin-top: 64px;
+<<<<<<< HEAD
+}
+
+.stamps{
+  height: 60px;
+  line-height: 60px;
+}
+.stamp{
+  height: 50px;
+  font-size: 23px;
+}
+
+.mdl-layout__header{
+  background-color: #607d8b !important;
+}
+
+.mdl-layout-title{
+  color: #fff;
+  font-weight: 100;
+}
+
+#video{
+  height: 150px;
+  width: 225px;
+  background-color: #ddd;
+  position: fixed;
+  bottom: 40px;
+  right:40px;
 }
