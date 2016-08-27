@@ -16,6 +16,8 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
 
+import connectWebSocketAction from "../actions/connect_websocket_action";
+
 //Store/Reducer----------------------------------
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, logger));
