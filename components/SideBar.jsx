@@ -21,14 +21,16 @@ const stl = {
 
 const textStl = {
   color: "#444",
-  fontSize: 25,
-  fontWeight: 200
+  fontSize: 22,
+  fontWeight 200,
+  paddingLeft: 50
 }
+
 const stampStl = {
-  paddingTop: 10,
-  paddingBottom: 6,
-  fontSize: 20
-  // height: 64,
+  paddingTop: 2,
+  paddingBotom: 2,
+  fontSize: 20,
+  height: 44
 }
 
 const SideBar = () => (
