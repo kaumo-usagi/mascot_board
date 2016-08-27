@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { createStore } from "redux";
-import reducer from "./reducers/index";
+import reducer from "../reducers/index";
 import createLogger from "redux-logger";
 
 // import your original components from components directory

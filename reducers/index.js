@@ -2,7 +2,7 @@ import { CombineReducers } from "redux"
 import text from "./text"
 import img from "./img"
 import free_hand from "./free_hand"
-import users from "./from"
+import users from "./users"
 
 export default combineReducers({
   text,
