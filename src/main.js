@@ -7,3 +7,5 @@ appearin.getRandomRoomName().then(function (roomName) {
   appearin.addRoomToIframe(iframe, roomName);
 });
 demoElement.appendChild(iframe);
+
+console.log("honyamorake")
