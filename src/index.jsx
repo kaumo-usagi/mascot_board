@@ -9,7 +9,7 @@ window.React = React;
 //If you use onTouchTap
 //injectTapEventPlugin();
 
-ReactDom.render(
+ReactDOM.render(
   <App />,
-	document.getElementByID("root")
-				)
+  document.getElementById("root")
+)
