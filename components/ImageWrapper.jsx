@@ -99,7 +99,11 @@ export default class ImageWrapper extends Component {
     const pos = {x: this.props.x || 0, y: this.props.y || 0};
 
     return (
-        <Image image={this.state.image} x={pos.x} y={pos.y} width={dims.width} height={dims.height}/>
+      <Image
+        image={this.state.image} x={pos.x} y={pos.y} width={dims.width} height={dims.height} draggable={true}
+        onDragMove={this.props.onDragMove}
+        onDragEnd={this.props.onDragEnd}
+      />
     );
   };
 }

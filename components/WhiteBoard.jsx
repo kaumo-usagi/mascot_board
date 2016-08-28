@@ -9,7 +9,9 @@ import ImageWrapper from "./ImageWrapper.jsx";
 
 import {
   ws,
-  MOVE_CURSOR
+  MOVE_CURSOR,
+  UPDATE_TXT,
+  UPDATE_IMG
 } from "../src/constant";
 
 const width = window.innerWidth - (240 + 40 + 40);
@@ -63,20 +65,31 @@ class WhiteBoard extends Component {
         circles.push(<Circle key={user.id} x={user.position.x} y={user.position.y} radius={10} fill={user.color} strokeWidth={4} />);
       }
     });
-    const images = this.props.images.map(img => {
-      return <ImageWrapper key={img.id} pos={ { x: img.x, y: img.y } } src={img.url} />;
+    const images = this.props.images.map(image => {
+      return (
+        <ImageWrapper
+          key={image.id} x={image.x} y={image.y} src={image.url}
+          onDragMove={e => this.props.onImageDragMove(e.evt, image)}
+          onDragEnd={e => this.props.onImageDragEnd(e.evt, image)}
+        />
+      );
     });
     const texts = this.props.texts.map(text => (
-      <Text fill="#666666" key={text.id} x={text.x} y={text.y} fontSize={20} text={text.body} />
+      <Text
+        fill="#666666" key={text.id} x={text.x} y={text.y} fontSize={20} text={text.body} draggable={true}
+        onDragMove={e => this.props.onTextDragMove(e.evt, text)}
+        onDragEnd={e => this.props.onTextDragEnd(e.evt, text)}
+      />
     ));
+
     return (
       <div id="whiteBoard">
         <Paper style={style} zDepth={1} onMouseMove={this.onMouseMove.bind(this)} >
           <Stage width={width} height={width}>
             <Layer>
-              { circles }
               { images }
               { texts }
+              { circles }
             </Layer>
           </Stage>
         </Paper>
@@ -100,6 +113,32 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  onTextDragMove(e, text, type = "text::drag") {
+    // TODO: componentでやるのはよくない
+    const rect = e.target.getBoundingClientRect();
+    const obj = { id: text.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
+    ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
+    dispatch({ type: UPDATE_TXT, data: { text: obj }  });
+  },
+  onTextDragEnd(e, text, type = "text::drag::end") {
+    const rect = e.target.getBoundingClientRect();
+    const obj = { id: text.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
+    ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
+    dispatch({ type: UPDATE_TXT, data: { text: obj }  });
+  },
+  onImageDragMove(e, image, type = "image::drag") {
+    // TODO: componentでやるのはよくない
+    const rect = e.target.getBoundingClientRect();
+    const obj = { id: image.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
+    ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
+    dispatch({ type: UPDATE_IMG, data: { image: obj }  });
+  },
+  onImageDragEnd(e, image, type = "image::drag::end") {
+    const rect = e.target.getBoundingClientRect();
+    const obj = { id: image.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
+    ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
+    dispatch({ type: UPDATE_IMG, data: { image: obj }  });
+  }
 });
 
 const WhiteBoardContainer = connect(
