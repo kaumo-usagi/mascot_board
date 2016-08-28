@@ -23,7 +23,7 @@ const onMessage = dispatch => {
   return msg => {
     const json = JSON.parse(msg.data);
     if (json.type === "mousemove") {
-      dispatch({ type: MOVE_CURSOR, data: json });
+      dispatch({ type: MOVE_CURSOR, data: json.data });
     } else if (json.type === "user") {
       dispatch({ type: ADD_USER, data: json.data });
     }
