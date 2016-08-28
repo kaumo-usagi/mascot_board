@@ -2,6 +2,7 @@ module.exports = {
   context: __dirname,
   entry: {
     jsx: "./src/index.jsx",
+    js: "./src/main.js",
     css: "./src/main.css",
     html: "./src/index.html",
   },
