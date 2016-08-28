@@ -13,8 +13,11 @@ import WhiteBoard from "../components/WhiteBoard"
 import React from "react";
 import ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+<<<<<<< HEAD
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
+=======
+>>>>>>> full refactor material-ui code nothing to use class structure.
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
 

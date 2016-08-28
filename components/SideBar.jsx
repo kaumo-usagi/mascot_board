@@ -21,9 +21,8 @@ const stl = {
 
 const textStl = {
   color: "#444",
-  fontSize: 22,
-  fontWeight: 200,
-  paddingLeft:50
+  fontSize: 25,
+  fontWeight: 200
 }
 
 const stampStl = {

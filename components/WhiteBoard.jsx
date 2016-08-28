@@ -1,9 +1,7 @@
-import React, { PropTypes, Component } from "react";
 import { Stage, Layer, Text, Circle } from "react-konva";
+import React from "react";
 import { connect } from "react-redux";
 import Paper from 'material-ui/Paper';
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import {
   ws,
@@ -38,7 +36,6 @@ class WhiteBoard extends Component {
     return {muiTheme: getMuiTheme(baseTheme)};
   }
 
-<<<<<<< HEAD
   textStyle() {
     return {
       top:  100,
@@ -60,8 +57,6 @@ class WhiteBoard extends Component {
     }
   }
 
-=======
->>>>>>> Establish websocket-connection with redux
   render() {
     const circles = [];
     Object.keys(this.props.users).forEach(i => {
@@ -81,17 +76,7 @@ class WhiteBoard extends Component {
           </Stage>
         </Paper>
       </div>
-    )
-  }
-}
-
-WhiteBoard.childContextTypes = {
-  muiTheme: PropTypes.object.isRequired
-};
-
-WhiteBoard.propTypes = {
-  users: PropTypes.object.isRequired
-};
+);
 
 const mapStateToProps = state => ({
   users: state.users
