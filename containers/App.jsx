@@ -26,11 +26,6 @@ const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 
 //Component---------------------------------------
-class App extends Component {
-  componentDidMount() {
-    store.dispatch(connectWebSocketAction());
-    store.dispatch(fetchBoardStateAction());
-  }
 
 const Temporary = () => (
       <div>
@@ -46,6 +41,7 @@ const Temporary = () => (
 class App extends Component {
   componentDidMount() {
     store.dispatch(connectWebSocketAction());
+    store.dispatch(fetchBoardStateAction());
   }
 
   render() {
