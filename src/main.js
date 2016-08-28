@@ -1,14 +1,9 @@
-// var AppearIn = require("appearin-sdk");
+import AppearIn from "appearin-sdk";
 
-var AppearIn = window.AppearIn || require("appearin-sdk");
-var appearin = new AppearIn();
-
-var isWebRtcCompatible = appearin.isWebRtcCompatible();
-
-appearin.getRandomRoomName().then(function (roomName) {
-    console.log(roomName);
-});
-
-var iframe = document.getElementById("video");
-var roomName = "honyamorake";
-appearin.addRoomToIframe(iframe, roomName);
+var demoElement = document.getElementById("video");
+    var iframe = document.createElement("iframe");
+    var appearin = new AppearIn();
+    appearin.getRandomRoomName().then(function (roomName) {
+        appearin.addRoomToIframe(iframe, roomName);
+    });
+demoElement.appendChild(iframe);
