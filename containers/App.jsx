@@ -9,7 +9,11 @@ import thunk from 'redux-thunk';
 import SideBar from "../components/SideBar"
 import Video from "../components/Video"
 import WhiteBoard from "../components/WhiteBoard"
+import Mordal from "../components/Mordal"
+
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
 import fetchBoardStateAction from "../actions/fetch_board_state_action";
@@ -28,15 +32,27 @@ class App extends Component {
     store.dispatch(fetchBoardStateAction());
   }
 
-  render() {
-	  return (
+const Temporary = () => (
       <div>
         <Provider store={store}>
           <WhiteBoard />
         </Provider>
         <SideBar />
         <Video />
+        <Mordal />
 		  </div>
+)
+
+class App extends Component {
+  componentDidMount() {
+    store.dispatch(connectWebSocketAction());
+  }
+
+  render() {
+	  return (
+        <MuiThemeProvider>
+          <Temporary />
+        </MuiThemeProvider>
 	 )
 	}
 
