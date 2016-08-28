@@ -260,3 +260,49 @@ nav{
   bottom: 40px;
   right:40px;
 }
+
+#stamps{
+  height: 64px !important;
+  line-height: 64px !important;
+  background-color: #b0bec5;
+}
+
+
+.stamp{
+  height: 50px;
+  font-size: 23px;
+  width: 100%;
+  padding-left:0px !important;
+  /*float: right;*/
+  display: block;
+  line-height: 30px;
+  text-indent: 2.6em;
+}
+
+.stamp .icon{
+  height: 14px;
+  width: auto;
+  float: left;
+  line-height: 14px;
+  position: absolute;
+  top:11px;
+  left: -80px;
+}
+
+.mdl-layout__header{
+  background-color: #607d8b !important;
+}
+
+.mdl-layout-title{
+  color: #fff;
+  font-weight: 100;
+}
+
+#video{
+  height: 150px;
+  width: 225px;
+  background-color: #ddd;
+  position: fixed;
+  bottom: 40px;
+  right:40px;
+}

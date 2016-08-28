@@ -3,10 +3,6 @@ import {List, ListItem} from 'material-ui/List';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
-import FileFolder from 'material-ui/svg-icons/file/folder';
-import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import {blue500, yellow600} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme' ;
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
@@ -23,13 +19,15 @@ const stl = {
 
 const textStl = {
   color: "#444",
-  fontSize: 25,
-  fontWeight: 200
+  fontSize: 22,
+  fontWeight: 200,
+  paddingLeft:50
 }
 const stampStl = {
-  paddingTop: 10,
-  paddingBottom: 6,
-  fontSize: 20
+  paddingTop: 2,
+  paddingBottom: 2,
+  fontSize: 20,
+  height:44
   // height: 64,
 }
 
@@ -46,19 +44,31 @@ class SideBar extends Component {
             primaryText="Text"
             inset={true}
             className="stamp"
-          />
+          >
+          <div className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">text_format</i>
+          </div>
+          </ListItem>
           <ListItem
             style={textStl}
             primaryText="Image"
             inset={true}
             className="stamp"
-          />
+          >
+          <div className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">insert_photo</i>
+          </div>
+          </ListItem>
           <ListItem
             style={textStl}
             primaryText="honya"
             inset={true}
             className="stamp"
-          />
+          >
+          <div className="mdl-navigation__link icon" href="">
+            <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i>
+          </div>
+          </ListItem>
         </List>
     )
   }
