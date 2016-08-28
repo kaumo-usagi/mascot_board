@@ -6,8 +6,6 @@ import Subheader from 'material-ui/Subheader';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme' ;
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-// injectTapEventPlugin()
 
 const stl = {
   height: "100%",
@@ -53,9 +51,9 @@ class SideBar extends Component {
           </ListItem>
           <ListItem
             style={textStl}
-            className="stamp"
             primaryText="Image"
             inset={true}
+            className="stamp"
           >
           <div className="mdl-navigation__link icon" href="">
             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">insert_photo</i>

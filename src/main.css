@@ -306,3 +306,8 @@ nav{
   bottom: 40px;
   right:40px;
 }
+
+#sideBar{
+  animation-duration: 10000;
+  opacity: 1;
+}
