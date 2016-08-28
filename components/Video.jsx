@@ -10,8 +10,8 @@ class Video extends Component {
   }
     render() {
       return (
-        <div id="video">
-        </div>
+        <iframe id="video">
+        </iframe>
       )
     }
   }
