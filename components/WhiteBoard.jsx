@@ -5,6 +5,8 @@ import Paper from 'material-ui/Paper';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import ImageWrapper from "./ImageWrapper.jsx";
+
 import {
   ws,
   MOVE_CURSOR
@@ -61,6 +63,9 @@ class WhiteBoard extends Component {
         circles.push(<Circle key={user.id} x={user.position.x} y={user.position.y} radius={10} fill={user.color} strokeWidth={4} />);
       }
     });
+    const images = this.props.images.map(img => {
+      return <ImageWrapper key={img.id} pos={ { x: img.x, y: img.y } } src={img.url} />;
+    });
     const texts = this.props.texts.map(text => (
       <Text fill="#666666" key={text.id} x={text.x} y={text.y} fontSize={20} text={text.body} />
     ));
@@ -70,6 +75,7 @@ class WhiteBoard extends Component {
           <Stage width={width} height={width}>
             <Layer>
               { circles }
+              { images }
               { texts }
             </Layer>
           </Stage>
@@ -89,6 +95,7 @@ WhiteBoard.propTypes = {
 
 const mapStateToProps = state => ({
   users: state.users,
+  images: state.images,
   texts: state.texts,
 });
 

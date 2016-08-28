@@ -5,6 +5,7 @@ import {
   ADD_USER,
   MOVE_CURSOR,
   ADD_TXT,
+  ADD_IMG,
 } from "../src/constant";
 
 
@@ -29,6 +30,8 @@ const onMessage = dispatch => {
       dispatch({ type: ADD_USER, data: json.data });
     } else if (json.type === "text::put") {
       dispatch({ type: ADD_TXT, data: json.data });
+    } else if (json.type === "image::put") {
+      dispatch({ type: ADD_IMG, data: json.data });
     }
   };
 };
