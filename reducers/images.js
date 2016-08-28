@@ -3,7 +3,7 @@ import {ADD_IMG, DELETE_IMG, UPDATE_IMG} from "../src/constant"
 export default function img(state=[], action) {
   switch (action.type) {
     case ADD_IMG :
-      return state.concat({url: action.url, position: action.position, id: action.id});
+      return state.concat(action.data.image);
     case DELETE_IMG :
       return state.filter( (e)=>{ return (e.id != action.id) } );
     case UPDATE_IMG :
