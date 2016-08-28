@@ -2,6 +2,7 @@ module.exports = {
   context: __dirname,
   entry: {
     jsx: "./src/index.jsx",
+    js: "./src/main.js",
     css: "./src/main.css",
     html: "./src/index.html",
   },
@@ -19,6 +20,7 @@ module.exports = {
       { test: /\.html$/, loader: "file?name=[name].[ext]" },
       { test: /\.css$/, loader: "file?name=[name].[ext]" },
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["react-hot","babel-loader"]},
+      { test: /\.js$/, exclude: /node_modules/, loaders: ["babel-loader"]}
     ],
   },
   resolve: {
