@@ -58,7 +58,7 @@ class WhiteBoard extends Component {
     Object.keys(this.props.users).forEach(i => {
       const user = this.props.users[i];
       if (user.position) {
-        circles.push(<Circle key={user.id} x={user.position.x} y={user.position.y} radius={10} fill={"#ff9999"} strokeWidth={4} />);
+        circles.push(<Circle key={user.id} x={user.position.x} y={user.position.y} radius={10} fill={user.color} strokeWidth={4} />);
       }
     });
     return (
