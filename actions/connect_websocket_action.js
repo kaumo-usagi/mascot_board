@@ -6,6 +6,8 @@ import {
   MOVE_CURSOR,
   ADD_TXT,
   ADD_IMG,
+  UPDATE_TXT,
+  UPDATE_IMG,
 } from "../src/constant";
 
 
@@ -32,6 +34,10 @@ const onMessage = dispatch => {
       dispatch({ type: ADD_TXT, data: json.data });
     } else if (json.type === "image::put") {
       dispatch({ type: ADD_IMG, data: json.data });
+    } else if (json.type === "text::drag") {
+      dispatch({ type: UPDATE_TXT, data: json.data });
+    } else if (json.type === "image::drag") {
+      dispatch({ type: UPDATE_IMG, data: json.data });
     }
   };
 };

@@ -7,9 +7,16 @@ export default function img(state=[], action) {
     case DELETE_IMG :
       return state.filter( (e)=>{ return (e.id != action.id) } );
     case UPDATE_IMG :
-      return state.map( (e)=>{ if(e.id === action.id){ return { url: action.url, position: action.position } } else{ return e }} )
+      const image = action.data.image;
+      console.log(action);
+      return state.map(e => {
+        if(e.id === image.id){
+          return Object.assign({}, e, { x: image.position.x, y: image.position.y });
+        } else {
+          return e;
+        }
+      });
     default :
       return state;
-
   }
 }
