@@ -45,9 +45,9 @@ class SideBar extends Component {
             inset={true}
             className="stamp"
           >
-          <a className="mdl-navigation__link icon" href="">
+          <div className="mdl-navigation__link icon" href="">
             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">text_format</i>
-          </a>
+          </div>
           </ListItem>
           <ListItem
             style={textStl}
@@ -55,9 +55,9 @@ class SideBar extends Component {
             inset={true}
             className="stamp"
           >
-          <a className="mdl-navigation__link icon" href="">
+          <div className="mdl-navigation__link icon" href="">
             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">insert_photo</i>
-          </a>
+          </div>
           </ListItem>
           <ListItem
             style={textStl}
@@ -65,9 +65,9 @@ class SideBar extends Component {
             inset={true}
             className="stamp"
           >
-          <a className="mdl-navigation__link icon" href="">
+          <div className="mdl-navigation__link icon" href="">
             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i>
-          </a>
+          </div>
           </ListItem>
         </List>
     )
