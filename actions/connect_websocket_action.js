@@ -3,7 +3,8 @@ import {
   OPEN_WEBSOCKET,
   CLOSE_WEBSOCKET,
   ADD_USER,
-  MOVE_CURSOR
+  MOVE_CURSOR,
+  ADD_TXT,
 } from "../src/constant";
 
 
@@ -26,6 +27,8 @@ const onMessage = dispatch => {
       dispatch({ type: MOVE_CURSOR, data: json.data });
     } else if (json.type === "user") {
       dispatch({ type: ADD_USER, data: json.data });
+    } else if (json.type === "text::put") {
+      dispatch({ type: ADD_TXT, data: json.data });
     }
   };
 };
