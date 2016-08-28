@@ -33,12 +33,7 @@ const stampStl = {
   // height: 64,
 }
 
-class SideBar extends Component {
-  getChildContext() {
-    return {muiTheme: getMuiTheme(baseTheme)};
-  }
-  render() {
-    return (
+const SideBar = () => (
         <List style={stl} id="sideBar">
           <Subheader id="stamps" inset={true} style={stampStl}>Stamps</Subheader>
           <ListItem
@@ -61,11 +56,4 @@ class SideBar extends Component {
           />
         </List>
     )
-  }
-}
-SideBar.childContextTypes = {
-  muiTheme: PropTypes.object.isRequired
-}
-
-
 export default SideBar;
