@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from "react";
-import { Stage, Layer, Text, Circle } from "react-konva";
+import { Stage, Layer, Text, Circle, Line } from "react-konva";
 import { connect } from "react-redux";
 import Paper from 'material-ui/Paper';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -11,7 +11,9 @@ import {
   ws,
   MOVE_CURSOR,
   UPDATE_TXT,
-  UPDATE_IMG
+  UPDATE_IMG,
+  START_DRAWING,
+  STOP_DRAWING,
 } from "../src/constant";
 
 const width = window.innerWidth - (240 + 40 + 40);
@@ -52,7 +54,7 @@ class WhiteBoard extends Component {
     if (now - this.state.lastUpdatedAt > 30) {
       const rect = e.target.getBoundingClientRect();
       // TODO: componentでやるのはよくない
-      ws.send(JSON.stringify({ type: "mousemove", position: { x: e.clientX - rect.left, y: e.clientY - rect.top } }));
+      ws.send(JSON.stringify({ type: "mousemove", position: { x: e.clientX - rect.left, y: e.clientY - rect.top }, drawing: this.props.drawing }));
       this.state.lastUpdatedAt = now;
     }
   }
@@ -74,6 +76,9 @@ class WhiteBoard extends Component {
         />
       );
     });
+    const strokes = this.props.free_hand.map(stroke => (
+      <Line points={stroke} stroke={"#999999"} strokeWidth={1} lineCap={"round"} lineJoin={"round"} />
+    ));
     const texts = this.props.texts.map(text => (
       <Text
         fill="#666666" key={text.id} x={text.x} y={text.y} fontSize={20} text={text.body} draggable={true}
@@ -84,10 +89,16 @@ class WhiteBoard extends Component {
 
     return (
       <div id="whiteBoard">
-        <Paper style={style} zDepth={1} onMouseMove={this.onMouseMove.bind(this)} >
+        <Paper
+          style={style} zDepth={1}
+          onMouseMove={this.onMouseMove.bind(this)}
+          onMouseDown={this.props.onMouseDown.bind(this)}
+          onMouseUp={this.props.onMouseUp.bind(this)}
+        >
           <Stage width={width} height={width}>
             <Layer>
               { images }
+              { strokes }
               { texts }
               { circles }
             </Layer>
@@ -110,15 +121,24 @@ const mapStateToProps = state => ({
   users: state.users,
   images: state.images,
   texts: state.texts,
+  free_hand: state.free_hand,
+  drawing: state.whiteboard.drawing
 });
 
 const mapDispatchToProps = dispatch => ({
+  onMouseDown(e) {
+    dispatch({ type: START_DRAWING });
+  },
+  onMouseUp(e) {
+    dispatch({ type: STOP_DRAWING });
+  },
   onTextDragMove(e, text, type = "text::drag") {
     // TODO: componentでやるのはよくない
     const rect = e.target.getBoundingClientRect();
     const obj = { id: text.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
     ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
     dispatch({ type: UPDATE_TXT, data: { text: obj }  });
+    dispatch({ type: STOP_DRAWING });
   },
   onTextDragEnd(e, text, type = "text::drag::end") {
     const rect = e.target.getBoundingClientRect();
@@ -132,6 +152,7 @@ const mapDispatchToProps = dispatch => ({
     const obj = { id: image.id, position: { x: e.clientX - rect.left, y: e.clientY - rect.top } };
     ws.send(JSON.stringify(Object.assign({}, { type: type }, obj)));
     dispatch({ type: UPDATE_IMG, data: { image: obj }  });
+    dispatch({ type: STOP_DRAWING });
   },
   onImageDragEnd(e, image, type = "image::drag::end") {
     const rect = e.target.getBoundingClientRect();

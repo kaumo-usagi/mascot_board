@@ -3,6 +3,9 @@ export const CLOSE_WEBSOCKET = "websocket::close";
 export const ADD_USER       = "user::add";
 export const MOVE_CURSOR = "cursor::move";
 
+export const START_DRAWING = "drawing::start";
+export const STOP_DRAWING = "drawing::stop";
+export const ADD_POINT = "drawing::add::point";
 
 export const ADD_TXT = "add_txt";
 export const DELETE_TXT = "delete_txt";
