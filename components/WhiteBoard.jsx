@@ -61,13 +61,16 @@ class WhiteBoard extends Component {
         circles.push(<Circle key={user.id} x={user.position.x} y={user.position.y} radius={10} fill={user.color} strokeWidth={4} />);
       }
     });
+    const texts = this.props.texts.map(text => (
+      <Text fill="#666666" key={text.id} x={text.x} y={text.y} fontSize={20} text={text.body} />
+    ));
     return (
       <div id="whiteBoard">
         <Paper style={style} zDepth={1} onMouseMove={this.onMouseMove.bind(this)} >
           <Stage width={width} height={width}>
             <Layer>
               { circles }
-              <Text fill="#666666" x={100} y={300} text={"Test text"} fontSize={30} />
+              { texts }
             </Layer>
           </Stage>
         </Paper>
@@ -85,7 +88,8 @@ WhiteBoard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  users: state.users
+  users: state.users,
+  texts: state.texts,
 });
 
 const mapDispatchToProps = dispatch => ({
