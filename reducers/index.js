@@ -1,11 +1,11 @@
 import { combineReducers } from "redux"
-import text from "./text"
+import texts from "./texts"
 import img from "./img"
 import free_hand from "./free_hand"
 import users from "./users"
 
 export default combineReducers({
-  text,
+  texts,
   img,
   free_hand,
   users
