@@ -11,6 +11,7 @@ class Video extends Component {
     render() {
       return (
         <div id="video">
+          <iframe src="https://appear.in/your-room-name" width="100%" height="100%" frameborder="0"></iframe>
         </div>
       )
     }
