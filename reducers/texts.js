@@ -7,7 +7,14 @@ export default function text(state=[], action) {
     case DELETE_TXT :
       return state.filter( (e)=>{ return (e.id != action.id) } );
     case UPDATE_TXT :
-      return state.map( (e)=>{ if(e.id === action.id){ return { txt: action.txt, position: action.position } } else{ return e }} );
+      const text = action.data.text;
+      return state.map(e => {
+        if(e.id === text.id){
+          return Object.assign({}, e, { x: text.position.x, y: text.position.y });
+        } else {
+          return e;
+        }
+      });
     default :
       return state;
   }

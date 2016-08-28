@@ -16,13 +16,21 @@ import ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
+import fetchBoardStateAction from "../actions/fetch_board_state_action";
 
 //Store/Reducer----------------------------------
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 
+
+
 //Component---------------------------------------
+class App extends Component {
+  componentDidMount() {
+    store.dispatch(connectWebSocketAction());
+    store.dispatch(fetchBoardStateAction());
+  }
 
 const Temporary = () => (
       <div>
