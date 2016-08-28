@@ -4,6 +4,7 @@ import {
   CLOSE_WEBSOCKET,
   ADD_USER,
   MOVE_CURSOR,
+  ADD_POINT,
   ADD_TXT,
   ADD_IMG,
   UPDATE_TXT,
@@ -28,6 +29,10 @@ const onMessage = dispatch => {
     const json = JSON.parse(msg.data);
     if (json.type === "mousemove") {
       dispatch({ type: MOVE_CURSOR, data: json.data });
+      console.log(json);
+      if (json.data.drawing) {
+        dispatch({ type: ADD_POINT, data: { position: json.data.position } });
+      }
     } else if (json.type === "user") {
       dispatch({ type: ADD_USER, data: json.data });
     } else if (json.type === "text::put") {
