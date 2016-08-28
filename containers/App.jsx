@@ -9,7 +9,10 @@ import thunk from 'redux-thunk';
 import SideBar from "../components/SideBar"
 import Video from "../components/Video"
 import WhiteBoard from "../components/WhiteBoard"
+
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 
 import connectWebSocketAction from "../actions/connect_websocket_action";
 
@@ -19,13 +22,8 @@ const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 
 //Component---------------------------------------
-class App extends Component {
-  componentDidMount() {
-    store.dispatch(connectWebSocketAction());
-  }
 
-  render() {
-	  return (
+const Temporary = () => (
       <div>
         <Provider store={store}>
           <WhiteBoard />
@@ -33,9 +31,15 @@ class App extends Component {
         <SideBar />
         <Video />
 		  </div>
-	 )
-	}
+    )
 
-}
+const App = () => (
+      <MuiThemeProvider>
+        <Temporary />
+      </MuiThemeProvider>
+    )
 
+  App.componentDidMount = () => {
+    store.dispatch(connectWebSocketAction());
+  }
 export default App;

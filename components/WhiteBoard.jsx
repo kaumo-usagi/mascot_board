@@ -28,10 +28,6 @@ class WhiteBoard extends Component {
     this.state = { lastUpdatedAt: new Date().getTime() };
   }
 
-  getChildContext() {
-    return {muiTheme: getMuiTheme(baseTheme)};
-  }
-
   textStyle() {
     return {
       top:  100,
@@ -79,9 +75,6 @@ class WhiteBoard extends Component {
   }
 }
 
-WhiteBoard.childContextTypes = {
-  muiTheme: PropTypes.object.isRequired
-};
 
 WhiteBoard.propTypes = {
   users: PropTypes.object.isRequired
